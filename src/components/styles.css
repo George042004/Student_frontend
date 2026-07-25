@@ -1,0 +1,366 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+body{
+    background-color: silver;
+}
+.container, .resetdiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    height: 100dvh;
+    width: 100%;
+    background: linear-gradient(140deg, lavender,rgba(152, 251, 152, 0.475));
+}
+
+.container .form, .resetpassword, .form{
+    padding: 40px 40px;
+    width: 370px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0 0 10px #5555;
+    border-radius: 20px;
+    background-color: aliceblue;
+}
+
+.container .form input,
+.resetpassword input,
+.adminnav div input,
+.form input
+{
+    padding: 9px;
+    width: 100%;
+    border: 1px solid grey;
+    border-radius: 5px;
+    outline: none;
+    font-size: 13px;
+    font-weight: 550;
+}
+
+.container .form input:focus,
+.adminnav div input:focus,
+.form input:focus
+{
+    border-color: green;
+    border-width: 1.55px;
+}
+
+.container .form h2{
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.container .form button, .resetpassword button{
+    padding: 10px 50px;
+    border-radius: 10px;
+    margin-top: 20px;
+    border: 1px solid grey;
+    cursor: pointer;
+    font-weight: 550;
+    background-color: #000;
+    color: white;
+    transition: 0.3s;
+}
+
+.container .form button:hover, .resetpassword button:hover{
+    background-color: #323232;
+}
+
+.container .form p{
+    color: #555;
+    margin-top: 20px;
+    font-weight: 510;
+}
+
+.stdnavbar,
+.adminnav
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 0 5%;
+    height: 80px;
+    width: 100%;
+    background-color: rgb(196, 249, 196);
+    box-shadow: 0 0 10px grey;
+    backdrop-filter: blur(5px);
+    position: fixed;
+    top: 0;
+    z-index: 1;
+}
+
+.stdnavbar div,
+ .adminnav div{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.stdnavbar div img{
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    border: 2px solid grey;
+}
+
+.stdnavbar div div{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.stdnavbar div div button{
+    padding: 2px;
+    font-size: 13px;
+    font-weight: bold;
+    background-color: #111;
+    color: #eee;
+    border: 2px solid black;
+    cursor: pointer;
+}
+
+
+.profile{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    padding: 20px 5%;
+}
+
+.profile p{
+    width: 100%;
+    font-size: large;
+}
+
+.buttons{
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding: 10px 5%;
+    gap: 20px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.4s;
+}
+
+.buttons button{
+    background: transparent;
+    border: none;
+    font-weight: bold;
+    font-size: larger;
+    height: 30px;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom-color 0.3s ease;
+    cursor: pointer;
+}
+
+.buttons button:hover{
+    border-bottom-color: black;
+}
+
+.resetpassword{
+    margin: 150px auto;
+}
+
+.adminnav div{
+    align-items: center;
+}
+
+.adminlogout{
+    padding: 10px 50px;
+    border-radius: 10px;
+    border: 1px solid grey;
+    cursor: pointer;
+    font-weight: 550;
+    background-color: #000;
+    color: white;
+    transition: 0.3s;
+}
+
+.admincontent{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    width: 90%;
+    border-radius: 20px;
+    margin: 0 auto;
+    padding: 20px;
+    margin-bottom: 30px;
+    background-color: white;
+    box-shadow: 0 0 10px grey;
+    transition: 0.4s;
+}
+
+.admincontent .leftright{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.admincontent .bottom{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.admincontent .bottom button{
+    padding: 7px 20px;
+    font-weight: 550;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.admincontent .bottom :last-child{
+    border: 2px solid rgba(255, 0, 0, 0.603);
+}
+
+.admincontent .bottom :first-child{
+    border: 2px solid rgba(0, 0, 255, 0.603);
+}
+
+.admincontent:hover{
+    scale: 1.03;
+}
+
+.admincontent div{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+    width: 50%;
+}
+
+.admincontent div img{
+    height: 180px;
+    width: 130px;
+    width: 50%;
+}
+
+.maindiv{
+    margin-top: 100px;
+}
+
+footer{
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    background-color: #111;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+footer button{
+    padding: 8px 20px;
+    border: 2px solid black;
+    color: #000;
+    font-weight: 550;
+    cursor: pointer;
+}
+
+footer p{
+    font-size: 20px;
+    color: #eee;
+    padding: 10px;
+}
+
+button:disabled,
+.form .verify:disabled{
+    cursor: not-allowed;
+    color: grey;
+}
+
+select{
+    padding: 8px 13px;
+    font-size: 14px;
+    font-weight: bold;
+}
+select option{
+    font-weight: bold;
+}
+
+.container .back{
+    position: absolute;
+    top: 90px;
+    right: 20px;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    border: 1px solid lightgray;
+}
+
+
+.form{
+    margin: 200px auto;
+}
+
+.form div{
+    width: 100%;
+    display: flex;
+    gap: 10px;
+}
+
+.form div input{
+    width:70%
+}
+
+.form div button{
+    width: 30%;
+    padding: 2px;
+    font-size: 13px;
+    font-weight: bold;
+    background-color: #111;
+    color: #eee;
+    border: 2px solid black;
+    cursor: pointer;
+}
+
+.changepassbut{
+    padding: 8px 10px;
+    font-size: 13px;
+    font-weight: bold;
+    background-color: #111;
+    color: #eee;
+    border: 2px solid black;
+    cursor: pointer;
+
+}
+
+.form h2{
+    margin: 20px;
+}
+
+.back{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    border: 1px solid lightgray;
+}
+.form .timer{
+    font-size: 14px;
+    float: right;
+    width: 100%;
+}
