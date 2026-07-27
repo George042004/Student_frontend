@@ -47,6 +47,7 @@ const Login = () => {
             <input type="password" placeholder='password' value={password} onChange={(e)=>setPassword(e.target.value)} />
             <button type='submit'>Sign in</button>
             <p>forgot password? <Link to='/resetpassword' >reset password</Link> </p>
+            <p>No acc? <Link to='/register' >register</Link> </p>
         </form>
       </div>
     </>
