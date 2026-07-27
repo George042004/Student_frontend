@@ -77,7 +77,7 @@ const Dashboard = ()=>{
             {
                 loading? <h1>Loading..</h1>:
                 data.map((d)=>{
-                    const imgurl = d.img.startsWith('http')?d.img: `http://localhost:1234/${d.img}`
+                    // const imgurl = d.img.startsWith('http')?d.img: `http://localhost:1234/${d.img}`
                     return(
                         <div className="maindiv">
                         <nav key={d.roll} className="stdnavbar">
@@ -87,7 +87,7 @@ const Dashboard = ()=>{
                                     <p>{d.roll.toUpperCase()}</p>
                                     <button onClick={()=>logout()}>Logout</button>
                                 </div>
-                                <img src={imgurl} alt="profile" />
+                                <img src={d.img?d.img||''} alt="profile" />
                             </div>
                         </nav>
 
