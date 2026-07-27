@@ -87,7 +87,7 @@ const Dashboard = ()=>{
                                     <p>{d.roll.toUpperCase()}</p>
                                     <button onClick={()=>logout()}>Logout</button>
                                 </div>
-                                <img src={d.img?d.img||''} alt="profile" />
+                                <img src={d.img?d.img:''} alt="profile" />
                             </div>
                         </nav>
 
