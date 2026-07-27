@@ -140,7 +140,7 @@ const AdminDashboard =()=>{
                                     </div>
 
                                     <div className='right'>
-                                        <img src={d.img} alt="profile" />
+                                        <img src={d.img?d.img :''} alt="profile" />
                                     </div>
 
                                 </div>
