@@ -6,7 +6,7 @@ import axios from 'axios'
 
 const Login = () => {
 
-    const {roll,setRoll,password,setPassword} = useHook()
+    const {roll,setRoll,password,setPassword,loading,setLoading} = useHook()
 
     const navigate = useNavigate()
 
@@ -18,7 +18,9 @@ const Login = () => {
             toast.error('Fill the fields !')
         }
         else{
+            setLoading(true)
             const res = await axios.post('https://student-backend-fe9r.onrender.com/users/login',{roll:roll.toLowerCase().trim() ,password:password.trim()})
+            setLoading(false)
             if(res.data.status)
             {
                 localStorage.setItem('token',res.data.token)
@@ -45,7 +47,7 @@ const Login = () => {
             <h2>Sign in</h2>
             <input type="text" placeholder='roll/email' value={roll} onChange={((e)=>setRoll(e.target.value))} />
             <input type="password" placeholder='password' value={password} onChange={(e)=>setPassword(e.target.value)} />
-            <button type='submit'>Sign in</button>
+            <button type='submit'>{loading? "Signing in...":"Sign in"}</button>
             <p>forgot password? <Link to='/resetpassword' >reset password</Link> </p>
             <p>No acc? <Link to='/register' >register</Link> </p>
         </form>

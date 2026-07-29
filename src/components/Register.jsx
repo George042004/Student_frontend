@@ -7,7 +7,7 @@ import toast from 'react-hot-toast'
 
 const Register = () => {
     
-    const {name,setName,roll,setRoll,phone,setPhone,password,setPassword,confirm,setConfirm,img,setImg,email,setEmail} = useHook()
+    const {name,setName,roll,setRoll,phone,setPhone,password,setPassword,confirm,setConfirm,img,setImg,email,setEmail,loading,setLoading} = useHook()
 
     async function register(e){
         e.preventDefault()
@@ -32,7 +32,9 @@ const Register = () => {
             formData.append('phone',phone)
             formData.append('password',password.trim())
             formData.append('img',img)
+            setLoadin(true)
             const res = await axios.post('https://student-backend-fe9r.onrender.com/users/register',formData)
+            setLoading(false)
             if(res.data.status)
             {
                 toast.success(res.data.message)
@@ -62,7 +64,7 @@ const Register = () => {
             <input type="password" placeholder='password' value={password} onChange={(e)=>setPassword(e.target.value)} />
             <input type="password" placeholder='confirm password' value={confirm} onChange={(e)=>setConfirm(e.target.value)} />
             <input type="file" onChange={(e)=>setImg(e.target.files[0])} />
-            <button type='submit'>Register Now</button>
+            <button type='submit'>{loading? "Registering...":"Register Now"}</button>
             <p>Already have acc? <Link to='/' >Sign in</Link> </p>
         </form>
       </div>
