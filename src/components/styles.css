@@ -378,3 +378,17 @@ select option{
     width: 100%;
 }
 
+.resumeinput{
+    padding: 30px 60px;
+    box-shadow: 0 0 10px #5555;
+}
+
+.resume-div{
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 70px auto;
+    flex-direction: column;
+    gap: 20px;
+}
