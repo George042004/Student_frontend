@@ -393,6 +393,7 @@ select option{
     flex-direction: column;
     gap: 20px;
     padding: 20px;
+    width: 80%;
     border-radius: 20px;
-    background-color: rgb(178, 218, 253);
+    background-color: white;
 }
