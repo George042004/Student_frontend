@@ -380,7 +380,6 @@ select option{
 
 .resumeinput{
     padding: 45px 60px;
-    box-shadow: 0 0 10px #5555;
     border-radius: 20px;
     background-color: aliceblue;
 }
@@ -396,4 +395,5 @@ select option{
     width: 80%;
     border-radius: 20px;
     background-color: white;
+    box-shadow: 0 0 10px #5555;
 }
