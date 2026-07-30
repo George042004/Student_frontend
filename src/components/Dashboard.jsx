@@ -13,6 +13,7 @@ const Dashboard = ()=>{
     const [password2,setPassword2] = useState('')
 
     const navigate = useNavigate()
+    const formData = new FormData()
 
     async function getData(){
         setLoading(true)
@@ -68,6 +69,21 @@ const Dashboard = ()=>{
     
     }
 
+    async function uploadresume(e){
+        e.preventDefault()
+        if(!formData)
+        {
+            toast.error("select resume file to add!")
+            return 
+        }
+        else{
+            const res = await axios.post('https://student-backend-fe9r.onrender.com/users/uploadresume',formData)
+            toast.success(res.data.message)
+        }
+
+    }
+
+
     useEffect(()=>{
         getData()
     },[])
@@ -94,24 +110,35 @@ const Dashboard = ()=>{
                         <div className="buttons">
                             <button onClick={()=>setOption('profile')}>profile</button>
                             <button onClick={()=>setOption('reset')}>Update password</button>
+                            <button onClick={()=>setOption('resume')}>Resume</button>
                         </div>
 
                         {
-                            option === "profile"?
+                            option === "profile" &&
                                 <div className="profile">
                                     <p>Name: {(d.name.charAt(0).toUpperCase()+d.name.slice(1).toLowerCase())}</p>
                                     <p>Roll: {d.roll.toUpperCase()}</p>
                                     <p>Email: {d.email}</p>
                                     <p>Phone: {d.phone}</p>
                                 </div>
-                                :
-                            <div className="resetpassword">
+                        }
+                         {
+                         option === "reset" &&
+                         <div className="resetpassword">
                                 <h2>Reset Password</h2>
                                 <input type="password" placeholder="old password" value={password} onChange={(e)=>setPassword(e.target.value)} />
                                 <input type="password" placeholder="new password" value={password1} onChange={(e)=>setPassword1(e.target.value)} />
                                 <input type="password" placeholder="confirm password" value={password2} onChange={(e)=>setPassword2(e.target.value)} />
                             <button onClick={changepass}>Reset Password</button>
                         </div>
+                        }
+                        {
+                            option === "resume" && 
+                            <div>
+                                <h2>Resume</h2>
+                                <input type='file' accept=".pdf" className="resumeinput" placeholder="Upload Resume" onChange={(e)=>formData.append("resume",e.target.files[0])} />
+                                <button onClick={uploadresume}>Upload resume</button>
+                            </div>
                         }
                     </div>
                     )
