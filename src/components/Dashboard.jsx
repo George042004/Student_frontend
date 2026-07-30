@@ -71,7 +71,7 @@ const Dashboard = ()=>{
 
     async function uploadresume(e){
         e.preventDefault()
-        if(!formData)
+        if(!formData.get("resume"))
         {
             toast.error("select resume file to add!")
             return 
@@ -135,7 +135,6 @@ const Dashboard = ()=>{
                         {
                             option === "resume" && 
                             <div className="resume-div">
-                                <h2>Resume</h2>
                                 <input type='file' accept=".pdf" className="resumeinput" placeholder="Upload Resume" onChange={(e)=>formData.append("resume",e.target.files[0])} />
                                 <button onClick={uploadresume} className="resumebutton">Upload resume</button>
                             </div>
