@@ -386,11 +386,13 @@ select option{
 }
 
 .resume-div{
-    
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 70px auto;
     flex-direction: column;
     gap: 20px;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: rgb(178, 218, 253);
 }
