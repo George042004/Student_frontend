@@ -78,7 +78,7 @@ const Dashboard = ()=>{
             return 
         }
         else{
-            const res = await axios.post('https://student-backend-fe9r.onrender.com/users/uploadresume',formData,{
+            const res = await axios.post('https://student-backend-fe9r.onrender.com/resumes/uploadresume',formData,{
                 headers:{
                     Authorization: `Bearer ${token}`,
                 }
