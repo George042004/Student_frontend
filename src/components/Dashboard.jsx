@@ -71,14 +71,25 @@ const Dashboard = ()=>{
 
     async function uploadresume(e){
         e.preventDefault()
+        const token = localStorage.getItem('token')
         if(!formData.get("resume"))
         {
             toast.error("select resume file to add!")
             return 
         }
         else{
-            const res = await axios.post('https://student-backend-fe9r.onrender.com/users/uploadresume',formData)
-            toast.success(res.data.message)
+            const res = await axios.post('https://student-backend-fe9r.onrender.com/users/uploadresume',formData,{
+                headers:{
+                    Authorization: `Bearer ${token}`,
+                }
+            })
+            if(res.data.status)
+            {
+                toast.success(res.data.message)
+            }
+            else{
+                toast.error(res.data.message)
+            }   
         }
 
     }
