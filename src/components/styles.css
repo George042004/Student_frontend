@@ -58,7 +58,7 @@ body{
     margin-bottom: 20px;
 }
 
-.container .form button, .resetpassword button, button{
+.container .form button, .resetpassword button, .resumebutton{
     padding: 10px 50px;
     border-radius: 10px;
     margin-top: 20px;
@@ -377,3 +377,4 @@ select option{
     float: right;
     width: 100%;
 }
+
