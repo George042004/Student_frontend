@@ -32,7 +32,7 @@ const Register = () => {
             formData.append('phone',phone)
             formData.append('password',password.trim())
             formData.append('img',img)
-            setLoadin(true)
+            setLoading(true)
             const res = await axios.post('https://student-backend-fe9r.onrender.com/users/register',formData)
             setLoading(false)
             if(res.data.status)
