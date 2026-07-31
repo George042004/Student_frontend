@@ -51,11 +51,13 @@ const Dashboard = ()=>{
             return 
         }
         const token = localStorage.getItem('token')
+        setLoading(true)
         const res = await axios.post('https://student-backend-fe9r.onrender.com/users/resetpass',{password,password1},{
             headers:{
                 Authorization: `Bearer ${token}`
             }
         })
+        setLoading(false)
 
         if(res.data.status)
         {
@@ -78,11 +80,13 @@ const Dashboard = ()=>{
             return 
         }
         else{
+            setloading(true)
             const res = await axios.post('https://student-backend-fe9r.onrender.com/resumes/uploadresume',formData,{
                 headers:{
                     Authorization: `Bearer ${token}`,
                 }
             })
+            setloading(false)
             if(res.data.status)
             {
                 toast.success(res.data.message)
@@ -140,14 +144,14 @@ const Dashboard = ()=>{
                                 <input type="password" placeholder="old password" value={password} onChange={(e)=>setPassword(e.target.value)} />
                                 <input type="password" placeholder="new password" value={password1} onChange={(e)=>setPassword1(e.target.value)} />
                                 <input type="password" placeholder="confirm password" value={password2} onChange={(e)=>setPassword2(e.target.value)} />
-                            <button onClick={changepass}>Reset Password</button>
+                            <button onClick={changepass}>{loading? `${<Loader />} Resetting...`:"Reset Password"}</button>
                         </div>
                         }
                         {
                             option === "resume" && 
                             <div className="resume-div">
                                 <input type='file' accept=".pdf" className="resumeinput" placeholder="Upload Resume" onChange={(e)=>formData.append("resume",e.target.files[0])} />
-                                <button onClick={uploadresume} className="resumebutton">Upload resume</button>
+                                <button onClick={uploadresume} className="resumebutton">{loading? `${<Loader />} Uploading...`:"Upload Resume"}</button>
                             </div>
                         }
                     </div>
