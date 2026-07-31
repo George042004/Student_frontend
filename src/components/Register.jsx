@@ -66,7 +66,7 @@ const Register = () => {
             <input type="password" placeholder='password' value={password} onChange={(e)=>setPassword(e.target.value)} />
             <input type="password" placeholder='confirm password' value={confirm} onChange={(e)=>setConfirm(e.target.value)} />
             <input type="file" onChange={(e)=>setImg(e.target.files[0])} />
-            <button type='submit'>{loading? `${<Loader />}Registering...`:"Register Now"}</button>
+            <button type='submit'>{loading? (<>{<Loader />}Registering...</>):"Register Now"}</button>
             <p>Already have acc? <Link to='/' >Sign in</Link> </p>
         </form>
       </div>
