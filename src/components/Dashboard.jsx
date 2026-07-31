@@ -144,7 +144,7 @@ const Dashboard = ()=>{
                                 <input type="password" placeholder="old password" value={password} onChange={(e)=>setPassword(e.target.value)} />
                                 <input type="password" placeholder="new password" value={password1} onChange={(e)=>setPassword1(e.target.value)} />
                                 <input type="password" placeholder="confirm password" value={password2} onChange={(e)=>setPassword2(e.target.value)} />
-                            <button onClick={changepass}>{loading? (<>{<Loader />} Resetting...</>):"Reset Password"}</button>
+                            <button onClick={changepass}>{loading? (<><Loader /> Resetting...</>):"Reset Password"}</button>
                         </div>
                         }
                         {
