@@ -405,6 +405,7 @@ select option{
     border: 3px solid #eee;
     animation: spinn 1.4s linear infinite;
     border-top-color: transparent;
+    display: inline-block;
 }
 
 @keyframes spinn{
