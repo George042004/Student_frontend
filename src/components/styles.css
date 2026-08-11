@@ -156,7 +156,7 @@ body{
     transition: border-color 0.4s;
 }
 
-.buttons button{
+.buttons button,.permission button,.switching{
     background: transparent;
     border: none;
     font-weight: bold;
@@ -336,7 +336,7 @@ select option{
     width:70%
 }
 
-.form div button, .permission button{
+.form div button{
     width: 30%;
     padding: 2px;
     font-size: 13px;
@@ -429,7 +429,13 @@ select option{
     border-radius: 20px;
     background-color: aliceblue;
     border: none;
+    width: 300px;
     margin: 70px auto;
+}
+
+.permission input{
+    padding: 6px;
+    border-radius: 3px;
 }
 
 .permission h2{

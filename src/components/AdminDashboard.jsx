@@ -96,6 +96,17 @@ const AdminDashboard =()=>{
         navigate('/')
     }
 
+    function switchOpt(){
+        if(swpgage==='students')
+        {
+            setSwpage('request')
+        }
+        else{
+            setSwpage('students')
+
+        }
+    }
+
     useEffect(()=>{
         const timer = setTimeout(()=>{
             getstudents()
@@ -111,7 +122,7 @@ const AdminDashboard =()=>{
     return(
         <>
                 <nav className="adminnav">
-                    <button>{swpgage==='students'? 'request':'students'}</button>
+                    <button className='switching' onClick={switchOpt}>{swpgage==='students'? 'request':'students'}</button>
                     <select onChange={(e)=>setSort(e.target.value)}>
                         <option value="oldest">oldest</option>
                         <option value="newest">newest</option>
