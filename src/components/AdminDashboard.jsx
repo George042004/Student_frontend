@@ -149,11 +149,12 @@ const AdminDashboard =()=>{
                     </div>
 :
                     <div className='maindiv'>
-                        {
-                        loading? (<h1>Loading..</h1>):
-                        !Array.isArray(data) || data.length===0 && swpgage ==='students' ? (<h1>No students found</h1>):
-                        
-                         data.map((d)=>{
+                          {loading ? (
+                                    <h1>Loading..</h1>
+                                ) : !Array.isArray(data) || data.length === 0 ? (
+                                    <h1>No students found</h1>
+                                ) : 
+                            data.map((d)=>{
                             return(
                             <div key={d.roll} className='admincontent'>
                                 <div className='leftright'>
@@ -184,7 +185,7 @@ const AdminDashboard =()=>{
 
                         reqdata.map((d)=>{
                             return(
-                                 <div key={d.roll} className='admincontent'>
+                                 <div key={d._id} className='admincontent'>
                                 <div className='leftright'>
                                     <div className='left'>
                                         <h1>{d.name}</h1>
@@ -194,7 +195,7 @@ const AdminDashboard =()=>{
                                     </div>
 
                                     <div className='right'>
-                                        <p>{d.request}</p>
+                                        <p>{d.reason}</p>
                                     </div>
 
                                 </div>

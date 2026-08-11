@@ -118,7 +118,7 @@ body{
     flex-direction: column;
 }
 
-.stdnavbar div div button{
+.stdnavbar div div button,.permission button,.switching{
     padding: 2px;
     font-size: 13px;
     font-weight: bold;
@@ -156,7 +156,7 @@ body{
     transition: border-color 0.4s;
 }
 
-.buttons button,.permission button,.switching{
+.buttons button{
     background: transparent;
     border: none;
     font-weight: bold;
