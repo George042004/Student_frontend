@@ -336,7 +336,7 @@ select option{
     width:70%
 }
 
-.form div button{
+.form div button, .permission button{
     width: 30%;
     padding: 2px;
     font-size: 13px;
@@ -416,4 +416,22 @@ select option{
     to{
         transform: rotate(360deg);
     }
+}
+
+.permission{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    padding: 40px 30px;
+    box-shadow: 0 0 10px grey;
+    border-radius: 20px;
+    background-color: aliceblue;
+    border: none;
+    margin: 70px auto;
+}
+
+.permission h2{
+    margin-bottom: 10px;
 }

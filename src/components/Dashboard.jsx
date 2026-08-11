@@ -11,6 +11,7 @@ const Dashboard = ()=>{
     const [option,setOption] = useState('profile')
     const [password1,setPassword1] = useState('')
     const [password2,setPassword2] = useState('')
+    const [req,setReq] = useState('')
 
     const navigate = useNavigate()
     const formData = new FormData()
@@ -71,31 +72,58 @@ const Dashboard = ()=>{
     
     }
 
-    async function uploadresume(e){
+    // async function uploadresume(e){
+    //     e.preventDefault()
+    //     const token = localStorage.getItem('token')
+    //     if(!formData.get("resume"))
+    //     {
+    //         toast.error("select resume file to add!")
+    //         return 
+    //     }
+    //     else{
+    //         setloading(true)
+    //         const res = await axios.post('https://student-backend-fe9r.onrender.com/resumes/uploadresume',formData,{
+    //             headers:{
+    //                 Authorization: `Bearer ${token}`,
+    //             }
+    //         })
+    //         setloading(false)
+    //         if(res.data.status)
+    //         {
+    //             toast.success(res.data.message)
+    //         }
+    //         else{
+    //             toast.error(res.data.message)
+    //         }   
+    //     }
+
+    // }
+
+    async function sendreq(e,name,roll,email,phone){
         e.preventDefault()
-        const token = localStorage.getItem('token')
-        if(!formData.get("resume"))
+        if(!req.trim())
         {
-            toast.error("select resume file to add!")
+            toast.fail("Enter your request!")
             return 
         }
-        else{
-            setloading(true)
-            const res = await axios.post('https://student-backend-fe9r.onrender.com/resumes/uploadresume',formData,{
-                headers:{
-                    Authorization: `Bearer ${token}`,
-                }
-            })
-            setloading(false)
-            if(res.data.status)
-            {
-                toast.success(res.data.message)
+        const token = localStorage.getItem('token')
+        setLoading(true)
+        const res = await axios.post('https://student-backend-fe9r.onrender.com/request/',{
+            name,roll,email,phone,req
+        },{
+            headers:{
+                Authorization:`Bearer ${token}`
             }
-            else{
-                toast.error(res.data.message)
-            }   
-        }
+        })
+        setLoading(false)
 
+        if(res.data.status)
+        {
+            toast.success(res.data.message)
+        }
+        else{
+            toast.error(res.data.message)
+        }
     }
 
 
@@ -108,7 +136,6 @@ const Dashboard = ()=>{
             {
                 loading? <h1>Loading..</h1>:
                 data.map((d)=>{
-                    // const imgurl = d.img.startsWith('http')?d.img: `http://localhost:1234/${d.img}`
                     return(
                         <div className="maindiv">
                         <nav key={d.roll} className="stdnavbar">
@@ -125,7 +152,8 @@ const Dashboard = ()=>{
                         <div className="buttons">
                             <button onClick={()=>setOption('profile')}>profile</button>
                             <button onClick={()=>setOption('reset')}>Update password</button>
-                            <button onClick={()=>setOption('resume')}>Resume</button>
+                            <button onClick={()=>setOption('permission')}>Permission request</button>
+                            {/* <button onClick={()=>setOption('resume')}>Resume</button> */}
                         </div>
 
                         {
@@ -147,11 +175,20 @@ const Dashboard = ()=>{
                             <button onClick={changepass}>{loading? (<><Loader /> Resetting...</>):"Reset Password"}</button>
                         </div>
                         }
-                        {
+                        {/* {
                             option === "resume" && 
                             <div className="resume-div">
                                 <input type='file' accept=".pdf" className="resumeinput" placeholder="Upload Resume" onChange={(e)=>formData.append("resume",e.target.files[0])} />
                                 <button onClick={uploadresume} className="resumebutton">{loading? (<>{<Loader />} Uploading...</>):"Upload Resume"}</button>
+                            </div>
+                        } */}
+
+                        {
+                            option === 'permission' &&
+                            <div className="permission">
+                                <h2>Permission</h2>
+                                <textarea id="" placeholder="Type reason.." value={req} onChange={(e)=>setReq(e.target.value)}></textarea>
+                                <button onClick={(e)=>sendreq(e,e.name,e.roll,e.email,e.phone)} disabled={loading}>{loading?"Sending..":"send request"}</button>
                             </div>
                         }
                     </div>
