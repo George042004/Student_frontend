@@ -441,3 +441,7 @@ select option{
 .permission h2{
     margin-bottom: 10px;
 }
+
+button:disabled{
+    cursor: none;
+}

@@ -148,75 +148,106 @@ const AdminDashboard =()=>{
                         </form>
                     </div>
 :
-                    <div className='maindiv'>
-                          {loading ? (
-                                    <h1>Loading..</h1>
-                                ) : !Array.isArray(data) || data.length === 0 ? (
-                                    <h1>No students found</h1>
-                                ) : 
-                            data.map((d)=>{
-                            return(
-                            <div key={d.roll} className='admincontent'>
-                                <div className='leftright'>
-                                    <div className='left'>
-                                        <h1>{d.name}</h1>
-                                        <p>{d.roll}</p>
-                                        <p>{d.email}</p>
-                                        <p>{d.phone}</p>
-                                    </div>
+                   <div className='maindiv'>
 
-                                    <div className='right'>
-                                        <img src={d.img?d.img :''} alt="profile" />
-                                    </div>
+                {swpgage === 'students' && (
+                    <>
+                        {loading ? (
+                            <h1>Loading..</h1>
+                        ) : !Array.isArray(data) || data.length === 0 ? (
+                            <h1>No students found</h1>
+                        ) : (
+                            data.map((d) => {
+                                return (
+                                    <div key={d.roll} className='admincontent'>
+                                        <div className='leftright'>
+                                            <div className='left'>
+                                                <h1>{d.name}</h1>
+                                                <p>{d.roll}</p>
+                                                <p>{d.email}</p>
+                                                <p>{d.phone}</p>
+                                            </div>
 
-                                </div>
-                                <div className="bottom">
-                                    <button onClick={(e)=>edit(e,{roll:d.roll, name:d.name, email:d.email, phone: d.phone})} >Edit</button>
-                                    <button onClick={()=>del(d.roll)}>Delete</button>
-                                </div>
-                            </div>
-                        )
-                    })
-                       
+                                            <div className='right'>
+                                                <img src={d.img ? d.img : ''} alt="profile" />
+                                            </div>
+                                        </div>
+
+                                        <div className="bottom">
+                                            <button onClick={(e)=>edit(e,{
+                                                roll:d.roll,
+                                                name:d.name,
+                                                email:d.email,
+                                                phone:d.phone
+                                            })}>
+                                                Edit
+                                            </button>
+
+                                            <button onClick={()=>del(d.roll)}>
+                                                Delete
+                                            </button>
+                                        </div>
+                                    </div>
+                                )
+                            })
+                        )}
+                    </>
+                )}
+
+                {swpgage === 'request' && (
+                    <>
+                        {reqdata.length === 0 ? (
+                            <h1>No requests found</h1>
+                        ) : (
+                            reqdata.map((d) => {
+                                return (
+                                    <div key={d._id} className='admincontent'>
+                                        <div className='leftright'>
+                                            <div className='left'>
+                                                <h1>{d.name}</h1>
+                                                <p>{d.roll}</p>
+                                                <p>{d.email}</p>
+                                                <p>{d.phone}</p>
+                                            </div>
+
+                                            <div className='right'>
+                                                <p>{d.reason}</p>
+                                            </div>
+                                        </div>
+
+                                        <div className="bottom">
+                                            <button>Accept</button>
+                                            <button>Reject</button>
+                                        </div>
+                                    </div>
+                                )
+                            })
+                        )}
+                    </>
+                )}
+
+                        {swpgage === 'students' && (
+                            <footer>
+                                <button
+                                    onClick={()=>setPage(page-1)}
+                                    disabled={page===1}
+                                >
+                                    prev
+                                </button>
+
+                                <p>page: {page}</p>
+
+                                <button
+                                    onClick={()=>setPage(page+1)}
+                                    disabled={page===totalpages}
+                                >
+                                    next
+                                </button>
+                            </footer>
+                        )}
+                    </div>
                     }
-
-                    {
-                        swpgage==='request' && 
-
-                        reqdata.map((d)=>{
-                            return(
-                                 <div key={d._id} className='admincontent'>
-                                <div className='leftright'>
-                                    <div className='left'>
-                                        <h1>{d.name}</h1>
-                                        <p>{d.roll}</p>
-                                        <p>{d.email}</p>
-                                        <p>{d.phone}</p>
-                                    </div>
-
-                                    <div className='right'>
-                                        <p>{d.reason}</p>
-                                    </div>
-
-                                </div>
-                                <div className="bottom">
-                                    <button>Accept</button>
-                                    <button>Reject</button>
-                                </div>
-                            </div>
-                            )
-                        })
-                        
-                    }
-                        <footer>
-                            <button onClick={()=>setPage(page-1)} disabled={page===1}>prev</button>
-                            <p>page: {page}</p>
-                            <button onClick={()=>setPage(page+1)} disabled={page===totalpages}>next</button>
-                        </footer>
-                    </div>}
-        </>
-    )
-
-}
+                    </>
+            )}
 
 export default AdminDashboard
