@@ -99,17 +99,17 @@ const Dashboard = ()=>{
 
     // }
 
-    async function sendreq(e,name,roll,email,phone){
-        e.preventDefault()
+    async function sendreq(event,name,roll,email,phone){
+        event.preventDefault()
         if(!req.trim())
         {
-            toast.fail("Enter your request!")
+            toast.error("Enter your request!")
             return 
         }
         const token = localStorage.getItem('token')
         setLoading(true)
         const res = await axios.post('https://student-backend-fe9r.onrender.com/request/',{
-            name,roll,email,phone,req
+            name,roll,email,phone,request:req 
         },{
             headers:{
                 Authorization:`Bearer ${token}`
@@ -188,7 +188,7 @@ const Dashboard = ()=>{
                             <div className="permission">
                                 <h2>Permission</h2>
                                 <textarea id="" placeholder="Type reason.." value={req} onChange={(e)=>setReq(e.target.value)}></textarea>
-                                <button onClick={(e)=>sendreq(e,e.name,e.roll,e.email,e.phone)} disabled={loading}>{loading?"Sending..":"send request"}</button>
+                                <button onClick={(e)=>sendreq(e,d.name,d.roll,d.email,d.phone)} disabled={loading}>{loading?"Sending..":"send request"}</button>
                             </div>
                         }
                     </div>
