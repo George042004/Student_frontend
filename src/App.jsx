@@ -45,8 +45,8 @@ function App() {
           <Route path='/' Component={Login} />
           <Route path='/register' Component={Register} />
           <Route path='/resetpassword' Component={Resetpassword} />
-          <Route path='/admin/dashboard' element={<Protect>{<AdminDashboard />}</Protect>} />
-          <Route path='/dashboard' element={<Protect>{<Dashboard />}</Protect>} />
+          <Route path='/admin/dashboard/:id' element={<Protect>{<AdminDashboard />}</Protect>} />
+          <Route path='/dashboard/:id' element={<Protect>{<Dashboard />}</Protect>} />
       </Routes>
     </>
   )
