@@ -455,7 +455,15 @@ button:disabled{
     margin: 70px auto;
     width: 90%;
     flex-direction: column;
+    background-color: aliceblue;
     border-radius: 10px;
+}
+
+.myreq h1{
+    padding: 10px;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: inset 0 0 5px lightgrey;
 }
 
 .myreq div{
@@ -464,4 +472,26 @@ button:disabled{
     gap: 20px;
     background-color: white;
     margin-bottom: 10px;
+    width: 90%;
+    border-radius: 10px;
+}
+
+.myreq .Acc{
+    padding: 10px;
+    display: flex;
+    gap: 20px;
+    background-color: palegreen;
+    margin-bottom: 10px;
+    width: 90%;
+    border-radius: 10px;
+}
+
+.myreq .Rej{
+    padding: 10px;
+    display: flex;
+    gap: 20px;
+    background-color: rgba(255, 0, 0, 0.642);
+    margin-bottom: 10px;
+    width: 90%;
+    border-radius: 10px;
 }

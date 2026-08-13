@@ -222,7 +222,7 @@ const Dashboard = ()=>{
                              <h1>No requests found</h1>: 
                                 myreq.map((request)=>{
                                 return(
-                                    <div key={request._id}>
+                                    <div key={request._id} className={request.reqStatus==='Accepted'?"Acc":"Rej"}>
                                         <h3>{request.reason}</h3>
                                         <p>{request.reqStatus}</p>
                                     </div>
