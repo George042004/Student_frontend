@@ -227,8 +227,8 @@ const AdminDashboard =()=>{
                                         </div>
 
                                         <div className="bottom">
-                                            <button onClick={(e)=>AccRej(e,"Accepted",d.roll)}>Accept</button>
-                                            <button onClick={(e)=>AccRej(e,"Rejected",d.roll)}>Reject</button>
+                                            <button onClick={(e)=>AccRej(e,"Accepted",d.roll)} disabled={d.reqStatus==='Accepted' || d.reqStatus==='Rejected'}>Accept</button>
+                                            <button onClick={(e)=>AccRej(e,"Rejected",d.roll)} disabled={d.reqStatus==='Accepted' || d.reqStatus==='Rejected'}>Reject</button>
                                         </div>
                                     </div>
                                 )
