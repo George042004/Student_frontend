@@ -222,11 +222,9 @@ const Dashboard = ()=>{
                              <h1>No requests found</h1>: 
                                 myreq.map((request)=>{
                                 return(
-                                    <div key={request._id} className={request.reqStatus==='Accepted'?"Acc":"Rej"}>
-                                        <div>
+                                    <div key={request._id} className={request.reqStatus==='Accepted'?"Acc": request.reqStatus==="pending"?"Pend":"Rej"} >
                                             <h3>{request.reason}</h3>
                                             <h2>{request.reqStatus}</h2>
-                                        </div>
                                         <p>{request.createdAt.slice(0,10)}</p>
                                     </div>
                                 )

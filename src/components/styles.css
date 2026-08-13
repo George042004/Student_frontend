@@ -470,12 +470,18 @@ button:disabled{
     padding: 10px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     gap: 20px;
-    background-color: white;
     margin-bottom: 10px;
     width: 90%;
     border-radius: 10px;
+}
+
+.myreq h3, .myreq h2{
+    text-align: left;
+}
+
+.myreq p{
+    text-align: right;
 }
 
 .myreq .Acc{
@@ -497,3 +503,14 @@ button:disabled{
     width: 90%;
     border-radius: 10px;
 }
+
+.myreq .Pend{
+    padding: 10px;
+    display: flex;
+    gap: 20px;
+    background-color: rgba(255, 68, 0, 0.615);
+    margin-bottom: 10px;
+    width: 90%;
+    border-radius: 10px;
+}
+
