@@ -469,6 +469,8 @@ button:disabled{
 .myreq div{
     padding: 10px;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     gap: 20px;
     background-color: white;
     margin-bottom: 10px;
