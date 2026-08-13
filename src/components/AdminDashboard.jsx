@@ -107,6 +107,17 @@ const AdminDashboard =()=>{
         }
     }
 
+    async function AccRej(e,reqStatus,roll){
+        e.preventDefault()
+        const ok = confirm("Are you sure?")
+        if(ok)
+        {
+            const res = await axios.put('https://student-backend-fe9r.onrender.com/request/updateReq',{
+                reqStatus, roll
+            })
+        }
+    }
+
     useEffect(()=>{
         const timer = setTimeout(()=>{
             getstudents()
@@ -216,8 +227,8 @@ const AdminDashboard =()=>{
                                         </div>
 
                                         <div className="bottom">
-                                            <button>Accept</button>
-                                            <button>Reject</button>
+                                            <button onClick={(e)=>AccRej(e,"Accepted",d.roll)}>Accept</button>
+                                            <button onClick={(e)=>AccRej(e,"Rejected",d.roll)}>Reject</button>
                                         </div>
                                     </div>
                                 )
