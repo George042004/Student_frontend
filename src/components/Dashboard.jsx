@@ -215,6 +215,10 @@ const Dashboard = ()=>{
                             option === 'myReq' && 
                             <div className="myreq">
                             {
+                            
+                             myreq.length===0 ? 
+
+                             <h1>No requests found</h1>: 
                                 myreq.map((request)=>{
                                 return(
                                     <div key={request._id}>
