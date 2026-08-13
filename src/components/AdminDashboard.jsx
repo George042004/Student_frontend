@@ -107,13 +107,13 @@ const AdminDashboard =()=>{
         }
     }
 
-    async function AccRej(e,reqStatus,roll){
+    async function AccRej(e,reqStatus,roll,reason){
         e.preventDefault()
         const ok = confirm("Are you sure?")
         if(ok)
         {
             const res = await axios.put('https://student-backend-fe9r.onrender.com/request/updateReq',{
-                reqStatus, roll
+                reqStatus, roll, reason
             })
         }
         getReq()
@@ -129,7 +129,7 @@ const AdminDashboard =()=>{
 
     useEffect(()=>{
         getReq()
-    },[])
+    },[swpgage])
 
     return(
         <>
@@ -228,8 +228,8 @@ const AdminDashboard =()=>{
                                         </div>
 
                                         <div className="bottom">
-                                            <button onClick={(e)=>AccRej(e,"Accepted",d.roll)} disabled={d.reqStatus==='Accepted' || d.reqStatus==='Rejected'}>Accept</button>
-                                            <button onClick={(e)=>AccRej(e,"Rejected",d.roll)} disabled={d.reqStatus==='Accepted' || d.reqStatus==='Rejected'}>Reject</button>
+                                            <button onClick={(e)=>AccRej(e,"Accepted",d.roll,d.reason)} disabled={d.reqStatus==='Accepted' || d.reqStatus==='Rejected'}>Accept</button>
+                                            <button onClick={(e)=>AccRej(e,"Rejected",d.roll,d.reason)} disabled={d.reqStatus==='Accepted' || d.reqStatus==='Rejected'}>Reject</button>
                                         </div>
                                     </div>
                                 )

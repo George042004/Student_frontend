@@ -445,3 +445,19 @@ select option{
 button:disabled{
     cursor: none;
 }
+
+.myreq{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    margin: 70px auto;
+    width: 90%;
+}
+
+.myreq div{
+    padding: 10px;
+    display: flex;
+    gap: 20px;
+}

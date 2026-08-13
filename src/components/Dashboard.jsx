@@ -12,6 +12,7 @@ const Dashboard = ()=>{
     const [password1,setPassword1] = useState('')
     const [password2,setPassword2] = useState('')
     const [req,setReq] = useState('')
+    const [myreq,setMyreq] = useState([])
 
     const navigate = useNavigate()
     const formData = new FormData()
@@ -120,10 +121,27 @@ const Dashboard = ()=>{
         if(res.data.status)
         {
             toast.success(res.data.message)
+            setReq('')
         }
         else{
             toast.error(res.data.message)
         }
+    }
+
+
+    async function myReq() {
+        const token = localStorage.getItem('token')
+        const res = await axios.get('https://student-backend-fe9r.onrender.com/request/myreq',{
+            headers:{
+                Authorization:`Bearer ${token}`
+            }
+        
+        })
+        if(res.data.status){
+            setMyreq(res.data.message)
+        }
+
+
     }
 
 
@@ -153,6 +171,7 @@ const Dashboard = ()=>{
                             <button onClick={()=>setOption('profile')}>profile</button>
                             <button onClick={()=>setOption('reset')}>Update password</button>
                             <button onClick={()=>setOption('permission')}>Permission request</button>
+                            <button onClick={()=>setOption('myReq')}>My requests</button>
                             {/* <button onClick={()=>setOption('resume')}>Resume</button> */}
                         </div>
 
@@ -189,6 +208,22 @@ const Dashboard = ()=>{
                                 <h2>Permission</h2>
                                 <textarea id="" placeholder="Type reason.." value={req} onChange={(e)=>setReq(e.target.value)}></textarea>
                                 <button onClick={(e)=>sendreq(e,d.name,d.roll,d.email,d.phone)} disabled={loading}>{loading?"Sending..":"send request"}</button>
+                            </div>
+                        }
+
+                        {
+                            option === 'myReq' && 
+                            <div className="myreq">
+                            {
+                                myreq.map((request)=>{
+                                return(
+                                    <div key={request._id}>
+                                        <h3>{request.reason}</h3>
+                                        <p>{request.reqStatus}</p>
+                                    </div>
+                                )
+                            })}
+
                             </div>
                         }
                     </div>
