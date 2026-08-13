@@ -147,6 +147,7 @@ const Dashboard = ()=>{
 
     useEffect(()=>{
         getData()
+        myReq()
     },[])
 
     return(
