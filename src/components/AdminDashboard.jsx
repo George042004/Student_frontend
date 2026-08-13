@@ -116,6 +116,7 @@ const AdminDashboard =()=>{
                 reqStatus, roll
             })
         }
+        getReq()
     }
 
     useEffect(()=>{
