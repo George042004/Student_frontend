@@ -99,7 +99,7 @@ const AdminDashboard =()=>{
     function switchOpt(){
         if(swpgage==='students')
         {
-            setSwpage('requests')
+            setSwpage('request')
         }
         else{
             setSwpage('students')
@@ -134,16 +134,15 @@ const AdminDashboard =()=>{
     return(
         <>
                 <nav className="adminnav">
-                    <button className='switching' onClick={switchOpt}>{swpgage==='students'? 'requests':'students'}</button>
-                    {swpgage==='students' && 
+                    <button className='switching' onClick={switchOpt}>{swpgage==='students'? 'request':'students'}</button>
                     <select onChange={(e)=>setSort(e.target.value)}>
                         <option value="oldest">oldest</option>
                         <option value="newest">newest</option>
                         <option value="az">a-z</option>
                         <option value="za">z-a</option>
-                    </select>}
+                    </select>
                     <div>
-                        {swpgage==='students' && <input type="text" placeholder='search' value={input} onChange={(e)=>setInput(e.target.value)} />}
+                        <input type="text" placeholder='search' value={input} onChange={(e)=>setInput(e.target.value)} />
                         <button className='adminlogout' onClick={()=>logout()}>Logout</button>
                     </div>
                 </nav>
@@ -207,7 +206,7 @@ const AdminDashboard =()=>{
                     </>
                 )}
 
-                {swpgage === 'requests' && (
+                {swpgage === 'request' && (
                     <>
                         {reqdata.length === 0 ? (
                             <h1>No requests found</h1>
