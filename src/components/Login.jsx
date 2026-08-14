@@ -30,7 +30,7 @@ const Login = () => {
                 setRoll('')
                 setPassword('')
                 toast.success(res.data.message)
-                const id = res.data.id
+                const id = res.id
                 if(roll.toLowerCase().trim() === '23me1a5490' || roll.toLowerCase().trim() === 'georgemullarm045@gmail.com')
                 {
                     navigate(`/admin/dashboard/${id}`)
