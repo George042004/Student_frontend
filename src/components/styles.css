@@ -442,9 +442,6 @@ select option{
     margin-bottom: 10px;
 }
 
-button:disabled{
-    cursor: none;
-}
 
 .myreq{
     display: flex;

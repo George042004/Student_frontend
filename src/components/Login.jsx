@@ -51,7 +51,7 @@ const Login = () => {
             <h2>Sign in</h2>
             <input type="text" placeholder='roll/email' value={roll} onChange={((e)=>setRoll(e.target.value))} />
             <input type="password" placeholder='password' value={password} onChange={(e)=>setPassword(e.target.value)} />
-            <button type='submit'>{loading?"signing in..":"Sign in"}</button>
+            <button type='submit' disabled={loading}>{loading?"signing in..":"Sign in"}</button>
             <p>forgot password? <Link to='/resetpassword' >reset password</Link> </p>
             <p>No acc? <Link to='/register' >register</Link> </p>
         </form>
