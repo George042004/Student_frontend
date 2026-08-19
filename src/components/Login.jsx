@@ -22,7 +22,9 @@ const Login = () => {
         }
         else{
             setLoading(true)
-            const res = await axios.post('https://student-backend-fe9r.onrender.com/users/login',{roll:roll.toLowerCase().trim() ,password:password.trim()})
+            const res = await axios.post('https://student-backend-fe9r.onrender.com/users/login',{roll:roll.toLowerCase().trim() ,password:password.trim()},{
+                validateStatus:(status)=>status<500
+            })
             setLoading(false)
             if(res.data.status)
             {
